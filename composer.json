@@ -1,0 +1,6 @@
+{
+	"require": {
+		"slim/slim": "dev-develop",
+		"j4mie/idiorm": "dev-sphinxdocs"
+	}
+}
