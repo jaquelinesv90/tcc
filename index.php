@@ -7,20 +7,21 @@ define('DB_DRIVER', 'mysql');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
-define('DB_DATABASE', 'tcc');
+define('DB_DATABASE', 'acougue');
 
 /**
  * Requires e includes de bibliotecas, etc
  */
-require_once 'vendor/autoload.php';
-require_once 'application/helpers/CustomView.php';
+require 'vendor/autoload.php';
 
 
 /**
  * Namespaces
  */
 use Slim\Slim;
+use Slim\Extras;
 use idiorm\idiorm;
+use Mustache\Mustache;
 
 /**
  * Configuração do banco de dados
@@ -44,7 +45,8 @@ try {
 	 */
 	ORM::configure('id_column_overrides', array(
 		'usuarios' => 'IDUsuario',
-		'perfis' => 'IDPerfil'
+		'perfis' => 'IDPerfil',
+		'produtos' => 'IDProduto'
 	));
 }
 catch ( PDOException $e ) {
@@ -62,30 +64,46 @@ $db = ORM::get_db();
 /**
  * Instancia de objetos
  */
-// View
-$view = new CustomView();
+
+/**
+ * Configuração da view e layoyts
+ */
+$view = new \Slim\Extras\Views\Mustache();
+
+// Define o caminho de onde o mustache está alocado
+\Slim\Extras\Views\Mustache::$mustacheDirectory = 'vendor/mustache/mustache/src/Mustache';
+
+// Valores padrões para as templates
+$view->appendData(array(
+	'template' => array(
+		'titulo' => 'WebSystems TI'
+	)
+));
 
 // Slim Framework
 $app = new Slim(array(
-	'view' => $view,
-	'templates.path' => './application/views'
+	'templates.path' => './application/views',
+	'view' => $view
 ));
+
+$app->add(new \Slim\Middleware\SessionCookie(array(
+	'expires' => '60 minutes',
+	'path' => '/',
+	'domain' => null,
+	'secure' => false,
+	'httponly' => false,
+	'name' => 'W3BS!S!T3MS#',
+	'secret' => 'b6e7fe44b10c445cfd30aebe852412f9fffd82c3',
+	'cipher' => MCRYPT_RIJNDAEL_256,
+	'cipher_mode' => MCRYPT_MODE_CBC
+)));
+
 
 /**
  * Routes
  */
-// Login
-$app->get('/usuario/:id_usuario', function($id_usuario) use ($app, $db) {
-	// Procura o usuario na base
-	$user = ORM::for_table('usuarios')->where('IDUsuario', $id_usuario)->find_one();
 
-	if ( $user ) {
-		echo $user->NomeUsuario;
-	}
-	else {
-		echo 'Usuário não encontrado';
-	}
-});
+require_once './application/routes/ProdutoRoute.php';
 
 /**
  * Run app, run!

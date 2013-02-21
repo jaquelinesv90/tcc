@@ -1,28 +1,26 @@
 {
-    "hash": "52fd7e683e289454435c2caae8f300d2",
+    "hash": "07418134a414b1a6d6488727cde799ac",
     "packages": [
         {
             "name": "j4mie/idiorm",
-            "version": "dev-sphinxdocs",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/j4mie/idiorm",
-                "reference": "a444f7141c2e235eb11ccf38806e8f24ef1f3051"
+                "reference": "v1.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/j4mie/idiorm/archive/a444f7141c2e235eb11ccf38806e8f24ef1f3051.zip",
-                "reference": "a444f7141c2e235eb11ccf38806e8f24ef1f3051",
+                "url": "https://api.github.com/repos/j4mie/idiorm/zipball/v1.3.0",
+                "reference": "v1.3.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0"
             },
-            "time": "2012-12-14 15:15:34",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
-                "files": [
+                "classmap": [
                     "idiorm.php"
                 ]
             },
@@ -55,31 +53,123 @@
             "description": "A lightweight nearly-zero-configuration object-relational mapper and fluent query builder for PHP5",
             "homepage": "http://j4mie.github.com/idiormandparis",
             "keywords": [
+                "idiorm",
                 "orm",
-                "query builder",
-                "idiorm"
-            ]
+                "query builder"
+            ],
+            "time": "2013-01-31 12:19:07"
         },
         {
-            "name": "slim/slim",
-            "version": "dev-develop",
+            "name": "mustache/mustache",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/codeguy/Slim",
-                "reference": "2b54c9b30e2705482dd3ccee1b47b36e110ba9bb"
+                "url": "https://github.com/bobthecow/mustache.php",
+                "reference": "v2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/codeguy/Slim/archive/2b54c9b30e2705482dd3ccee1b47b36e110ba9bb.zip",
-                "reference": "2b54c9b30e2705482dd3ccee1b47b36e110ba9bb",
+                "url": "https://github.com/bobthecow/mustache.php/archive/v2.1.0.zip",
+                "reference": "v2.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mustache": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Hileman",
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "A Mustache implementation in PHP.",
+            "homepage": "https://github.com/bobthecow/mustache.php",
+            "keywords": [
+                "mustache",
+                "templating"
+            ],
+            "time": "2013-01-12 07:18:03"
+        },
+        {
+            "name": "slim/extras",
+            "version": "2.0.3",
+            "target-dir": "Slim/Extras",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeguy/Slim-Extras",
+                "reference": "2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/codeguy/Slim-Extras/archive/2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "slim/slim": ">=2.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Twig_Extensions_": "Views/Extension/",
+                    "Slim\\Extras": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Smith",
+                    "email": "a.smith@silentworks.co.uk",
+                    "homepage": "http://www.silentworks.co.uk/"
+                },
+                {
+                    "name": "Josh Lockhart",
+                    "email": "info@joshlockhart.com",
+                    "homepage": "https://github.com/codeguy/"
+                }
+            ],
+            "description": "Extras package for the Slim Framework",
+            "homepage": "http://github.com/codeguy/Slim-Extras",
+            "keywords": [
+                "extensions",
+                "middleware",
+                "templating"
+            ],
+            "time": "2013-01-07 17:56:10"
+        },
+        {
+            "name": "slim/slim",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeguy/Slim",
+                "reference": "2.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/codeguy/Slim/archive/2.2.0.zip",
+                "reference": "2.2.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-12-13 02:37:19",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Slim": "."
@@ -93,7 +183,7 @@
                 {
                     "name": "Josh Lockhart",
                     "email": "info@joshlockhart.com",
-                    "homepage": "http://www.joshlockhart.com/"
+                    "homepage": "https://github.com/codeguy/"
                 }
             ],
             "description": "Slim Framework, a PHP micro framework",
@@ -102,7 +192,8 @@
                 "microframework",
                 "rest",
                 "router"
-            ]
+            ],
+            "time": "2012-12-13 02:15:50"
         }
     ],
     "packages-dev": null,
@@ -110,8 +201,7 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "slim/slim": 20,
-        "j4mie/idiorm": 20
-    }
+    "stability-flags": [
+
+    ]
 }

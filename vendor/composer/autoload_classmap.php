@@ -6,4 +6,9 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'IdiormResultSet' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
+    'IdiormString' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
+    'IdiormStringException' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
+    'ORM' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
+    'Produto' => $baseDir . '/application/controllers/Produto.php',
 );

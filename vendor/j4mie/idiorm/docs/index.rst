@@ -14,7 +14,10 @@ Contents:
    philosophy
    installation
    configuration
-
+   querying
+   models
+   transactions
+   connections
 
 
 Indices and tables

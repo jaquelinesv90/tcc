@@ -87,6 +87,24 @@ configuration array shortcut:
         'password' => 'top_secret'
     ));
 
+Result sets
+^^^^^^^^^^^
+
+Setting: ``return_result_sets``
+
+Collections of results can be returned as an array (default) or as a result set.
+See the `find_result_set()` documentation for more information.
+
+::
+
+    ORM::configure('return_result_sets', true); // returns result sets
+
+
+.. note::
+
+   It is recommended that you setup your projects to use result sets as they
+   are more flexible.
+
 PDO Driver Options
 ^^^^^^^^^^^^^^^^^^
 
@@ -116,7 +134,22 @@ class constants defined by PDO. For example:
     ORM::configure('error_mode', PDO::ERRMODE_WARNING);
 
 The default setting is ``PDO::ERRMODE_EXCEPTION``. For full details of
-the error modes available, see `the PDO documentation`_.
+the error modes available, see `the PDO set attribute documentation`_.
+
+PDO object access
+^^^^^^^^^^^^^^^^^
+
+Should it ever be necessary, the PDO object used by Idiorm may be
+accessed directly through ``ORM::get_db()``, or set directly via
+``ORM::set_db()``. This should be an unusual occurance.
+
+After a statement has been executed by any means, such as ``::save()``
+or ``::raw_execute()``, the ``PDOStatement`` instance used may be
+accessed via ``ORM::get_last_statement()``. This may be useful in order
+to access ``PDOStatement::errorCode()``, if PDO exceptions are turned
+off, or to access the ``PDOStatement::rowCount()`` method, which returns
+differing results based on the underlying database. For more
+information, see the `PDOStatement documentation`_.
 
 Identifier quote character
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -208,5 +241,6 @@ Warnings and gotchas
 
 .. _PDO documentation: http://php.net/manual/en/pdo.construct.php
 .. _the PDO documentation: http://www.php.net/manual/en/pdo.construct.php
-.. _the PDO documentation: http://uk2.php.net/manual/en/pdo.setattribute.php
+.. _the PDO set attribute documentation: http://uk2.php.net/manual/en/pdo.setattribute.php
+.. _PDOStatement documentation: http://www.php.net/manual/en/class.pdostatement.php
 .. _Memcached: http://www.memcached.org/

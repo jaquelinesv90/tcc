@@ -1,6 +1,5 @@
 ﻿<?php
 
-
 class Produto {
 
 	// Atributos
@@ -9,38 +8,56 @@ class Produto {
 	private $valorVendaProduto;
 	private $codigoBarrasProduto;
 
-	// Construtor - Proposta
-	public function __construct($idProduto, $descricaoProduto, $valorVendaProduto, $codigoBarrasProduto, $tipoUnidade, $cateogira)
+
+	public function __construct($produto = null)
 	{
-		// Se id do produto for nulo, ele faz um novo cadastro
-		if ( is_null($idProduto) ) {
-			$this->novoProduto($descricaoProduto, $valorVendaProduto, $codigoBarrasProduto, $tipoUnidade, $cateogira);
+		if ( !is_null($produto) ) {
+			// Se id do produto for nulo, ele faz um novo cadastro
+			if ( is_null($produto->idProduto) ) {
+				$this->novoProduto($produto);
+			}
+			// Se não for, ele identifica que é uma atualização de produto
+			else {
+				$this->atualizarProduto($produto);
+			}
 		}
-		// Se não for, ele identifica que é uma atualização de produto
-		else {
-			$this->atualizarProduto($idProduto, $descricaoProduto, $valorVendaProduto, $codigoBarrasProduto, $tipoUnidade, $cateogira);
-		}
+
+		return $this;
 	}
 
 
-	// Métodos
+	/**
+	 * Métodos
+	 */
+
+	public function verificaProduto($idProduto) {
+
+		if ( is_int($idProduto) ) {
+			$produto = ORM::for_table('produtos')->where('IDProduto', $idProduto)->count();
+
+			if ( $produto ) {
+				return true;
+			}
+		}
+		else {
+			throw new Exception('O ID do Produto deve ser um número inteiro.');
+		}
+
+		return false;
+	}
+
 	public function verProduto($idProduto)
 	{
+		if ( $this->verificaProduto($idProduto) ) {
+			$produto = ORM::for_table('produtos')->where('IDProduto', $idProduto)->find_one();
 
+			return $produto;
+		}
 	}
 
-	public function novoProduto($descricaoProduto, $valorVendaProduto, $codigoBarrasProduto, $tipoUnidade, $cateogira)
+	public function novoProduto($produto)
 	{
-		// Utilizaria assim...
-		$descricaoProduto;
-		$valorVendaProduto;
-	}
 
-	public function novoProduto($objetoProduto)
-	{
-		// Utilizaria assim...
-		$objetoProduto->idProduto;
-		$objetoProduto->descricaoProduto;
 	}
 
 	public function excluirProduto($idProduto)
@@ -63,7 +80,7 @@ class Produto {
 
 	}
 
-	public function atualizarProduto($idProduto, $descricaoProduto, $valorVendaProduto, $codigoBarrasProduto, $tipoUnidade, $cateogira)
+	public function atualizarProduto($produto)
 	{
 
 	}

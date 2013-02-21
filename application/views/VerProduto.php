@@ -1,0 +1,4 @@
+{{> HeaderPainel}}
+
+
+{{> FooterPainel }}
