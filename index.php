@@ -77,7 +77,16 @@ $view = new \Slim\Extras\Views\Mustache();
 $view->appendData(array(
 	'template' => array(
 		'titulo' => 'WebSystems TI'
+	),
+	'files' => array(
+		'css' => array(
+			'styles.css'
+		)
+	),
+	'paths' => array(
+		'css' => '/public/css'
 	)
+
 ));
 
 // Slim Framework
@@ -86,6 +95,10 @@ $app = new Slim(array(
 	'view' => $view
 ));
 
+/**
+ * Adiciona um suporte para criação de sessão
+ * Isso faz suportar opções como FlashMessages, tempo permitido na sessão e mais segurança
+ */
 $app->add(new \Slim\Middleware\SessionCookie(array(
 	'expires' => '60 minutes',
 	'path' => '/',
@@ -98,12 +111,15 @@ $app->add(new \Slim\Middleware\SessionCookie(array(
 	'cipher_mode' => MCRYPT_MODE_CBC
 )));
 
-
 /**
  * Routes
+ * Le os arquivos que estão na pasta 'routes' e faz o include deles
+ * Não é mais necessário ficar fazendo require a cada arquivo novo
  */
+foreach( array_diff(scandir('./application/routes'), array('..', '.')) as $routes) {
+	require_once './application/routes/' . $routes;
+}
 
-require_once './application/routes/ProdutoRoute.php';
 
 /**
  * Run app, run!
