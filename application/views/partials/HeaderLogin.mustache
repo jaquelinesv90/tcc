@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 		<title>{{ template.titulo }}</title>
 		
-		{{#files.css}}
-		<link href="{{ paths.css }}/{{ . }}" rel="stylesheet" type="text/css" />
-		{{/files.css}}
+		{{#template.files.css}}
+		<link href="{{ template.paths.css }}/{{ . }}" rel="stylesheet" type="text/css" />
+		{{/template.files.css}}
 		<!--[if IE]> <link href="css/ie.css" rel="stylesheet" type="text/css"> <![endif]-->
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 

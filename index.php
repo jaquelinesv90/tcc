@@ -76,17 +76,14 @@ $view = new \Slim\Extras\Views\Mustache();
 // Valores padrões para as templates
 $view->appendData(array(
 	'template' => array(
-		'titulo' => 'WebSystems TI'
-	),
-	'files' => array(
-		'css' => array(
-			'styles.css'
+		'titulo' => 'WebSystems TI',
+		'files' => array(
+			'css' => array('styles.css')
+		),
+		'paths' => array(
+			'css' => '/public/css'
 		)
-	),
-	'paths' => array(
-		'css' => '/public/css'
 	)
-
 ));
 
 // Slim Framework

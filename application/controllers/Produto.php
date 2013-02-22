@@ -32,26 +32,17 @@ class Produto {
 
 	public function verificaProduto($idProduto) {
 
-		if ( is_int($idProduto) ) {
-			$produto = ORM::for_table('produtos')->where('IDProduto', $idProduto)->count();
-
-			if ( $produto ) {
-				return true;
-			}
-		}
-		else {
+		if ( !is_int($idProduto) ) {
 			throw new Exception('O ID do Produto deve ser um número inteiro.');
 		}
 
-		return false;
+		return (ORM::for_table('produtos')->where('IDProduto', $idProduto)->count() > 0);
 	}
 
 	public function verProduto($idProduto)
 	{
 		if ( $this->verificaProduto($idProduto) ) {
-			$produto = ORM::for_table('produtos')->where('IDProduto', $idProduto)->find_one();
-
-			return $produto;
+			return ORM::for_table('produtos')->where('IDProduto', $idProduto)->find_one();
 		}
 	}
 
