@@ -78,10 +78,20 @@ $view->appendData(array(
 	'template' => array(
 		'titulo' => 'WebSystems TI',
 		'files' => array(
-			'css' => array('styles.css')
+			'defaults' => array(
+				'css' => array(
+					'styles.css'
+				),
+				'js' => array(
+					'files/jquery.js',
+					'files/jquery-ui.min.js'
+				)
+			)
 		),
 		'paths' => array(
-			'css' => '/public/css'
+			'css' => '/public/css',
+			'js' => '/public/js',
+			'images' => '/public/images'
 		)
 	)
 ));

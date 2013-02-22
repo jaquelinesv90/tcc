@@ -11,4 +11,8 @@ return array(
     'IdiormStringException' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
     'ORM' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
     'Produto' => $baseDir . '/application/controllers/Produto.php',
+    'elFinder' => $baseDir . '/application/helpers/elFinder.class.php',
+    'elFinderConnector' => $baseDir . '/application/helpers/elFinderConnector.class.php',
+    'elFinderVolumeDriver' => $baseDir . '/application/helpers/elFinderVolumeDriver.class.php',
+    'elFinderVolumeLocalFileSystem' => $baseDir . '/application/helpers/elFinderVolumeLocalFileSystem.class.php',
 );

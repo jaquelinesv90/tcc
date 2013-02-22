@@ -1,22 +1,26 @@
-<!DOCTYPE html PUBLIC html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 		<title>{{ template.titulo }}</title>
-		
+
+		{{#template.files.defaults.css}}
+		<link href="{{ template.paths.css }}/{{ . }}" rel="stylesheet" type="text/css" />
+		{{/template.files.defaults.css}}
+
 		{{#template.files.css}}
 		<link href="{{ template.paths.css }}/{{ . }}" rel="stylesheet" type="text/css" />
 		{{/template.files.css}}
-		<!--[if IE]> <link href="css/ie.css" rel="stylesheet" type="text/css"> <![endif]-->
+		<!--[if IE]> <link href="{{ template.paths.css }}/ie.css" rel="stylesheet" type="text/css"> <![endif]-->
 
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		{{#template.files.defaults.js}}
+		<script type="text/javascript" src="{{ template.paths.js }}/{{ . }}"></script>
+		{{/template.files.defaults.js}}
 
-		<script type="text/javascript" src="js/files/bootstrap.js"></script>
-		<script type="text/javascript" src="js/files/login.js"></script>
-		<script type="text/javascript" src="js/files/functions.js"></script>
-
+		{{#template.files.js}}
+		<script type="text/javascript" src="{{ template.paths.js }}/{{ . }}"></script>
+		{{/template.files.js}}
 	</head>
 
 	<body>
@@ -24,8 +28,8 @@
 		<!-- Top line begins -->
 		<div id="top">
 			<div class="wrapper">
-				<a href="#" title="" class="logo"><img src="images/logo.png" alt="" /></a>
-				
+				<a href="#" title="" class="logo"><img src="{{ template.paths.images }}/logo.png" alt="" /></a>
+
 				<!-- Right top nav -->
 				<div class="topNav">
 					<ul class="userNav">

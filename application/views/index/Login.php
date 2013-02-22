@@ -3,7 +3,7 @@
 <!-- Current user form -->
 <form action="index.html" id="login">
 	<div class="loginPic">
-		<a href="#" title=""><img src="images/userLogin.png" alt="" /></a>
+		<a href="#" title=""><img src="{{ template.paths.images }}/userLogin.png" alt="" /></a>
 		<span>Eugene Kopyov</span>
 		<div class="loginActions">
 			<div><a href="#" title="Change user" class="logleft flip"></a></div>
@@ -23,7 +23,7 @@
 <!-- New user form -->
 <form action="index.html" id="recover">
 	<div class="loginPic">
-		<a href="#" title=""><img src="images/userLogin2.png" alt="" /></a>
+		<a href="#" title=""><img src="{{ template.paths.images }}/userLogin2.png" alt="" /></a>
 		<div class="loginActions">
 			<div><a href="#" title="" class="logback flip"></a></div>
 			<div><a href="#" title="Forgot password?" class="logright"></a></div>

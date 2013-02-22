@@ -132,7 +132,7 @@ class View
         if (!is_array($data)) {
             throw new \InvalidArgumentException('Cannot append view data. Expected array argument.');
         }
-        $this->data = array_merge($this->data, $data);
+        $this->data = array_replace_recursive($this->data, $data);
     }
 
     /**
