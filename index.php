@@ -28,30 +28,30 @@ use Mustache\Mustache;
  * Tudo relacionando os banco deve entrar neste bloco de try/catch
  */
 try {
-    /**
-     * Conecta com o banco, passando qual o driver (Mysql), host, user e pass e a base da dados
-     */
-    ORM::configure( DB_DRIVER . ':host=' . DB_HOST . ';dbname=' . DB_DATABASE ); // Conexão
-    ORM::configure(array(
-        'username' => DB_USER, // Nome de usuário do banco
-        'password' => DB_PASS, // Senha do usuário do banco
-        'driver_options' => array(
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8', // Converte o resultado para utf-8
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ // Todos os resultados retornaram em object
-        )
-    ));
-    /**
-     * Indica qual é a PK de cada tabela !important
-     */
-    ORM::configure('id_column_overrides', array(
-        'usuarios' => 'IDUsuario',
-        'perfis' => 'IDPerfil',
-        'produtos' => 'IDProduto'
-    ));
+	/**
+	 * Conecta com o banco, passando qual o driver (Mysql), host, user e pass e a base da dados
+	 */
+	ORM::configure( DB_DRIVER . ':host=' . DB_HOST . ';dbname=' . DB_DATABASE ); // Conexão
+	ORM::configure(array(
+		'username' => DB_USER, // Nome de usuário do banco
+		'password' => DB_PASS, // Senha do usuário do banco
+		'driver_options' => array(
+			PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8', // Converte o resultado para utf-8
+			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ // Todos os resultados retornaram em object
+		)
+	));
+	/**
+	 * Indica qual é a PK de cada tabela !important
+	 */
+	ORM::configure('id_column_overrides', array(
+		'usuarios' => 'IDUsuario',
+		'perfis' => 'IDPerfil',
+		'produtos' => 'IDProduto'
+	));
 }
 catch ( PDOException $e ) {
-    echo $e->getMessage();
-    exit;
+	echo $e->getMessage();
+	exit;
 }
 
 
@@ -75,21 +75,21 @@ $view = new \Slim\Extras\Views\Mustache();
 
 // Valores padrões para as templates
 $view->appendData(array(
-    'template' => array(
-        'titulo' => 'WebSystems TI',
-        'files' => array(
-            'css' => array('styles.css')
-        ),
-        'paths' => array(
-            'css' => '/public/css'
-        )
-    )
+	'template' => array(
+		'titulo' => 'WebSystems TI',
+		'files' => array(
+			'css' => array('styles.css')
+		),
+		'paths' => array(
+			'css' => '/public/css'
+		)
+	)
 ));
 
 // Slim Framework
 $app = new Slim(array(
-    'templates.path' => './application/views',
-    'view' => $view
+	'templates.path' => './application/views',
+	'view' => $view
 ));
 
 /**
@@ -97,15 +97,15 @@ $app = new Slim(array(
  * Isso faz suportar opções como FlashMessages, tempo permitido na sessão e mais segurança
  */
 $app->add(new \Slim\Middleware\SessionCookie(array(
-    'expires' => '60 minutes',
-    'path' => '/',
-    'domain' => null,
-    'secure' => false,
-    'httponly' => false,
-    'name' => 'W3BS!S!T3MS#',
-    'secret' => 'b6e7fe44b10c445cfd30aebe852412f9fffd82c3',
-    'cipher' => MCRYPT_RIJNDAEL_256,
-    'cipher_mode' => MCRYPT_MODE_CBC
+	'expires' => '60 minutes',
+	'path' => '/',
+	'domain' => null,
+	'secure' => false,
+	'httponly' => false,
+	'name' => 'W3BS!S!T3MS#',
+	'secret' => 'b6e7fe44b10c445cfd30aebe852412f9fffd82c3',
+	'cipher' => MCRYPT_RIJNDAEL_256,
+	'cipher_mode' => MCRYPT_MODE_CBC
 )));
 
 /**
@@ -114,7 +114,7 @@ $app->add(new \Slim\Middleware\SessionCookie(array(
  * Não é mais necessário ficar fazendo require a cada arquivo novo
  */
 foreach( array_diff(scandir('./application/routes'), array('..', '.')) as $routes) {
-    require_once './application/routes/' . $routes;
+	require_once './application/routes/' . $routes;
 }
 
 
