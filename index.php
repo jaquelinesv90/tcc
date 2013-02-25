@@ -76,7 +76,7 @@ $view = new \Slim\Extras\Views\Mustache();
 // Valores padrões para as templates
 $view->appendData(array(
 	'template' => array(
-		'titulo' => 'WebSystems TI',
+		'titulo' => 'WebSystems - Sistemas para Web',
 		'files' => array(
 			'defaults' => array(
 				'css' => array(
