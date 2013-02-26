@@ -11,10 +11,13 @@ $app->get('/produto/:id_produto', function($idProduto) use ($app, $db) {
 		$app->flash('error', $e->getMessage());
 	}
 
-	$app->render('VerProduto.php', array(
+	$app->render('/produto/VerProduto.php', array(
 		'produto' => $produto,
 		'template' => array(
-			'titulo' => 'Teste'
+			'titulo' => $titulo
+		),
+		'content' => array(
+			'title' => 'Editar Produto'
 		)
 	));
 });
