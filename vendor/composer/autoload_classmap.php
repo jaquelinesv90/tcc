@@ -6,11 +6,13 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Categoria' => $baseDir . '/application/controllers/Categoria.php',
     'IdiormResultSet' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
     'IdiormString' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
     'IdiormStringException' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
     'ORM' => $baseDir . '/vendor/j4mie/idiorm/idiorm.php',
     'Produto' => $baseDir . '/application/controllers/Produto.php',
+    'Unidade' => $baseDir . '/application/controllers/Unidade.php',
     'elFinder' => $baseDir . '/application/helpers/elFinder.class.php',
     'elFinderConnector' => $baseDir . '/application/helpers/elFinderConnector.class.php',
     'elFinderVolumeDriver' => $baseDir . '/application/helpers/elFinderVolumeDriver.class.php',

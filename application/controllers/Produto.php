@@ -46,9 +46,22 @@ class Produto {
 		}
 	}
 
+	public function verificaProdutoCodigoBarras($codigo) {
+		return (ORM::for_table('produtos')->where('CodigoBarrasProduto', $codigo)->count() > 0);
+	}
+
 	public function novoProduto($produto)
 	{
+		$new = ORM::for_table('produtos')->create();
+		$new->NomeProduto = $produto->NomeProduto;
+		$new->CodigoBarrasProduto = $produto->CodigoBarrasProduto;
+		$new->ValorVendaProduto = $produto->ValorVendaProduto;
+		$new->DescricaoProduto = $produto->descProduto;
+		$new->IDCategoria = $produto->IDCategoria;
+		$new->IDUnidade = $produto->IDUnidade;
+		$new->save();
 
+		return true;
 	}
 
 	public function excluirProduto($idProduto)
